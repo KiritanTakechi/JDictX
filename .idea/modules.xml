@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JDictX.iml" filepath="$PROJECT_DIR$/JDictX.iml" />
+      <module fileurl="file://$PROJECT_DIR$/py/py.iml" filepath="$PROJECT_DIR$/py/py.iml" />
     </modules>
   </component>
 </project>
