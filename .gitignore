@@ -27,4 +27,5 @@ bin/
 
 ### Mac OS ###
 .DS_Store
-/db/
+/db/ecdict.db
+/db/stardict.db

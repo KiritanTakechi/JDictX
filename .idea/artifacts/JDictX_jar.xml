@@ -1,11 +1,9 @@
 <component name="ArtifactManager">
-  <artifact name="JDictX:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/JDictX_jar</output-path>
-    <root id="root">
-      <element id="archive" name="JDictX.jar">
-        <element id="module-output" name="JDictX" />
-        <element id="module-output" name="py" />
-      </element>
+  <artifact type="jar" name="JDictX:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/JDictX</output-path>
+    <root id="archive" name="JDictX.jar">
+      <element id="module-output" name="JDictX" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/fastjson2-2.0.19.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
