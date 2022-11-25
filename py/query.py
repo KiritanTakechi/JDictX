@@ -1,5 +1,9 @@
 import stardict
 import sys
+import json
 
-book = stardict.StarDict(sys.argv[2])
-print(book.query(sys.argv[1]))
+try:
+    book = stardict.StarDict(sys.argv[2])
+    print(json.dumps(book.query(sys.argv[1])))
+except IndexError:
+    print("请输入单词！")

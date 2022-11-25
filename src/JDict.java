@@ -1,9 +1,12 @@
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONObject;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.Closeable;
 import java.io.InputStreamReader;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,10 +22,18 @@ public class JDict {
         button0.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                textArea.setText("");
                 String py = System.getProperty("user.dir") + "/venv/bin/python3";
                 String query = System.getProperty("user.dir") + "/py/query.py";
                 String db = System.getProperty("user.dir") + "/db/stardict.db";
-                textArea.setText(ReadCmdLine(py + " " + query + " " + textField.getText() + " " + db));
+                if (!Objects.equals(textField.getText(), "")) {
+                    String data = (ReadCmdLine(py + " " + query + " " + textField.getText() + " " + db));
+                    processResult(data);
+                    System.out.println("data = " + data);
+                }
+                else {
+                    textArea.setText("请输入单词！");
+                }
             }
         });
         button1.addActionListener(new ActionListener() {
@@ -39,7 +50,7 @@ public class JDict {
         window.setContentPane(jDict.panel);
         window.setVisible(true);
         window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        window.setSize(500, 300);
+        window.setSize(800, 600);
         window.setLocationRelativeTo(null);
         jDict.textArea.setEditable(false);
         jDict.textArea.setLineWrap(true);
@@ -93,5 +104,17 @@ public class JDict {
             }
         }
 
+    }
+
+    private void processResult(String result) {
+        try {
+            JSONObject obj = JSON.parseObject(result);
+            textArea.append("单词：" + obj.get("word") + "\n");
+            textArea.append("音标：" + obj.get("phonetic") + "\n");
+            textArea.append("英释义：" + "\n" + obj.get("definition") + "\n");
+            textArea.append("汉释义：" + "\n" + obj.get("translation") + "\n");
+        } catch (Exception ignored) {
+            textArea.setText("无此单词！");
+        }
     }
 }
