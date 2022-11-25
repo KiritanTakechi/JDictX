@@ -1,4 +1,5 @@
 import stardict
+import sys
 
-book = stardict.StarDict('../db/stardict.db')
-print(book.query('ass'))
+book = stardict.StarDict(sys.argv[2])
+print(book.query(sys.argv[1]))

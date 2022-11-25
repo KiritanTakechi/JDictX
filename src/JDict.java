@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 public class JDict {
     private JLabel label;
-    private JTextField textField0;
+    private JTextField textField;
     private JButton button0;
     private JTextArea textArea;
     private JButton button1;
@@ -19,7 +19,10 @@ public class JDict {
         button0.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                String py = System.getProperty("user.dir") + "/venv/bin/python3";
+                String query = System.getProperty("user.dir") + "/py/query.py";
+                String db = System.getProperty("user.dir") + "/db/stardict.db";
+                textArea.setText(ReadCmdLine(py + " " + query + " " + textField.getText() + " " + db));
             }
         });
         button1.addActionListener(new ActionListener() {
