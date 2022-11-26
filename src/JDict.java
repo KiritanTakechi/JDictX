@@ -60,7 +60,7 @@ public class JDict {
     private void Search() {
         textArea.setText("");
         String py = "python";
-        String query = System.getProperty("user.dir") + "/py/query.py";
+        String query = System.getProperty("user.dir") + "/script/query.py";
         String db = System.getProperty("user.dir") + "/db/stardict.db";
         if (!Objects.equals(textField.getText(), "")) {
             String data = (Script.ReadCmdLine(py + " " + query + " " + textField.getText() + " " + db));

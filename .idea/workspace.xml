@@ -6,17 +6,20 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc9a95e5-3c3c-4d1a-8936-765d96f2058f" name="变更" comment="v1.2 加入回车快捷键">
-      <change afterPath="$PROJECT_DIR$/py/ECDICT/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/py/count.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/py/match.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/py/register.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/py/remove.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/py/update.py" afterDir="false" />
+    <list default="true" id="cc9a95e5-3c3c-4d1a-8936-765d96f2058f" name="变更" comment="v1.2.1 更新">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/dictutils.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/ECDICT/dictutils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/query.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/query.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/stardict.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/ECDICT/stardict.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/ECDICT/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/ECDICT/dictutils.py" beforeDir="false" afterPath="$PROJECT_DIR$/script/dictutils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/ECDICT/stardict.py" beforeDir="false" afterPath="$PROJECT_DIR$/script/stardict.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/count.py" beforeDir="false" afterPath="$PROJECT_DIR$/script/count.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/match.py" beforeDir="false" afterPath="$PROJECT_DIR$/script/match.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/py.iml" beforeDir="false" afterPath="$PROJECT_DIR$/script/script.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/query.py" beforeDir="false" afterPath="$PROJECT_DIR$/script/query.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/script/register.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/remove.py" beforeDir="false" afterPath="$PROJECT_DIR$/script/remove.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py/update.py" beforeDir="false" afterPath="$PROJECT_DIR$/script/update.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JDict.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JDict.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +67,8 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/script" />
+      <recent name="$PROJECT_DIR$/py/ECDICT" />
       <recent name="$PROJECT_DIR$/py" />
     </key>
   </component>
@@ -82,7 +87,7 @@
       <workItem from="1669355317009" duration="10961000" />
       <workItem from="1669366386248" duration="141000" />
       <workItem from="1669366539600" duration="7114000" />
-      <workItem from="1669442883319" duration="10537000" />
+      <workItem from="1669442883319" duration="11851000" />
     </task>
     <task id="LOCAL-00001" summary="0.1">
       <created>1668574611515</created>
@@ -140,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669455055204</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="v1.2.1 更新">
+      <created>1669456032528</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1669456032528</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,7 +177,8 @@
     <MESSAGE value="1.0" />
     <MESSAGE value="1.1" />
     <MESSAGE value="v1.2 加入回车快捷键" />
-    <option name="LAST_COMMIT_MESSAGE" value="v1.2 加入回车快捷键" />
+    <MESSAGE value="v1.2.1 更新" />
+    <option name="LAST_COMMIT_MESSAGE" value="v1.2.1 更新" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/JDictX$dictutils.coverage" NAME="dictutils 覆盖结果" MODIFIED="1669443063378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/py" />
