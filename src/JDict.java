@@ -7,24 +7,37 @@ import java.awt.event.KeyEvent;
 import java.util.Objects;
 
 public class JDict {
-    private JLabel label;
+    private final String py = "python";
+    private final String query = System.getProperty("user.dir") + "/script/query.py";
+    private final String count = System.getProperty("user.dir") + "/script/count.py";
+    private final String match = System.getProperty("user.dir") + "/script/match.py";
+    private final String register = System.getProperty("user.dir") + "/script/register.py";
+    private final String remove = System.getProperty("user.dir") + "/script/remove.py";
+    private final String update = System.getProperty("user.dir") + "/script/update.py";
+
+    private final String db = System.getProperty("user.dir") + "/db/stardict.db";
     private JTextField textField;
     private JButton button0;
     private JTextArea textArea;
     private JButton button1;
     private JPanel panel;
     private JButton button2;
+    private JLabel label;
 
     public JDict() {
         JFrame window = new JFrame("英汉大辞典");
         window.setContentPane(this.panel);
         window.setVisible(true);
         window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        window.setSize(800, 600);
+        window.setSize(600, 400);
         window.setLocationRelativeTo(null);
         this.textArea.setEditable(false);
         this.textArea.setLineWrap(true);
         this.textArea.setWrapStyleWord(true);
+
+        new Thread(() -> {
+            label.setText("词条数：" + Script.ReadCmdLine(py + " " + count + " " + db));
+        }).start();
 
         button0.addActionListener(e -> {
             Search();
@@ -39,6 +52,7 @@ public class JDict {
                 }
             }
         });
+
     }
 
     private void processResult(String result) {
@@ -59,9 +73,6 @@ public class JDict {
 
     private void Search() {
         textArea.setText("");
-        String py = "python";
-        String query = System.getProperty("user.dir") + "/script/query.py";
-        String db = System.getProperty("user.dir") + "/db/stardict.db";
         if (!Objects.equals(textField.getText(), "")) {
             String data = (Script.ReadCmdLine(py + " " + query + " " + textField.getText() + " " + db));
             processResult(data);

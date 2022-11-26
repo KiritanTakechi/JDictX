@@ -1,6 +1,7 @@
-from ECDICT import stardict
 import sys
 import json
+
+from ECDICT import stardict
 
 try:
     book = stardict.StarDict(sys.argv[2])
