@@ -1,25 +1,30 @@
 import javax.swing.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class PyCheck {
-    private final JFrame window;
+
     private JPanel panel;
-    private JTextArea textArea;
-    private JButton button;
+    private JLabel label;
 
     public PyCheck() {
-        window = new JFrame("Python环境检测");
+        JFrame window = new JFrame("Python环境检测");
         window.setContentPane(this.panel);
         window.setVisible(true);
         window.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         window.setSize(200, 150);
         window.setLocationRelativeTo(null);
-        this.textArea.setEditable(false);
-        this.textArea.setLineWrap(true);
-        this.textArea.setWrapStyleWord(true);
-
-        textArea.setText(Script.ReadCmdLine("python -V"));
-
-        button.addActionListener(e -> window.dispose());
+        String data = Script.ReadCmdLine("python -V");
+        if(data.startsWith("Python")) {
+            String regEx = "[^0-9.]";
+            Pattern p = Pattern.compile(regEx);
+            Matcher m = p.matcher(data);
+            String result = m.replaceAll("").trim();
+            label.setText("Python版本为：" + result);
+        }
+        else {
+            label.setText("未检测到Python");
+        }
     }
 
 }

@@ -36,7 +36,7 @@ public class JDict {
         this.textArea.setWrapStyleWord(true);
 
         new Thread(() -> {
-            label.setText("词条数：" + Script.ReadCmdLine(py + " " + count + " " + db));
+            label.setText("词条数：" + Script.ReadCmdLine(py + " " + count + " " + db) + "  ");
         }).start();
 
         button0.addActionListener(e -> {
@@ -62,7 +62,9 @@ public class JDict {
             textArea.append("音标：" + obj.get("phonetic") + "\n");
             textArea.append("英释义：" + "\n" + obj.get("definition") + "\n");
             textArea.append("汉释义：" + "\n" + obj.get("translation") + "\n");
-            textArea.append("科斯林" + obj.get("collins") + "★" + "词汇" + "\n");
+            if (obj.get("collins") != null) {
+                textArea.append("科斯林" + obj.get("collins") + "★" + "词汇" + "\n");
+            }
             if (Objects.equals(obj.get("oxford"), 1)) {
                 textArea.append("牛津必背三千词词汇");
             }
