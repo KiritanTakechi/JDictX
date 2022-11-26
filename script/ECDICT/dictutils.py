@@ -995,12 +995,3 @@ class Treasure (object):
 		else:
 			stardict.tools.export_mdict(mdx2, name2)
 		return 0
-
-
-
-#----------------------------------------------------------------------
-# generation
-#----------------------------------------------------------------------
-generator = Generator()
-resemble = Resemble()
-treasure = Treasure()
