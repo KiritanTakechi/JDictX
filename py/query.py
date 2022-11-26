@@ -1,4 +1,4 @@
-import stardict
+from ECDICT import stardict
 import sys
 import json
 

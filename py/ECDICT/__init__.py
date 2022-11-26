@@ -1,0 +1,1 @@
+from stardict import StarDict
