@@ -2,6 +2,8 @@ import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
 
 import javax.swing.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.Objects;
 
 public class JDict {
@@ -25,21 +27,18 @@ public class JDict {
         this.textArea.setWrapStyleWord(true);
 
         button0.addActionListener(e -> {
-            textArea.setText("");
-            String py = "python";
-            String query = System.getProperty("user.dir") + "/py/query.py";
-            String db = System.getProperty("user.dir") + "/db/stardict.db";
-            if (!Objects.equals(textField.getText(), "")) {
-                String data = (Script.ReadCmdLine(py + " " + query + " " + textField.getText() + " " + db));
-                processResult(data);
-                System.out.println("data = " + data);
-            }
-            else {
-                textArea.setText("请输入单词！");
-            }
+            Search();
         });
         button1.addActionListener(e -> textArea.setText(""));
         button2.addActionListener(e -> new Thread(PyCheck::new).start());
+        textField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if(e.getKeyChar() ==KeyEvent.VK_ENTER) {
+                    Search();
+                }
+            }
+        });
     }
 
     private void processResult(String result) {
@@ -49,8 +48,27 @@ public class JDict {
             textArea.append("音标：" + obj.get("phonetic") + "\n");
             textArea.append("英释义：" + "\n" + obj.get("definition") + "\n");
             textArea.append("汉释义：" + "\n" + obj.get("translation") + "\n");
+            textArea.append("科斯林" + obj.get("collins") + "★" + "词汇" + "\n");
+            if (Objects.equals(obj.get("oxford"), 1)) {
+                textArea.append("牛津必背三千词词汇");
+            }
         } catch (Exception ignored) {
             textArea.setText("无此单词！");
+        }
+    }
+
+    private void Search() {
+        textArea.setText("");
+        String py = "python";
+        String query = System.getProperty("user.dir") + "/py/query.py";
+        String db = System.getProperty("user.dir") + "/db/stardict.db";
+        if (!Objects.equals(textField.getText(), "")) {
+            String data = (Script.ReadCmdLine(py + " " + query + " " + textField.getText() + " " + db));
+            processResult(data);
+            System.out.println("data = " + data);
+        }
+        else {
+            textArea.setText("请输入单词！");
         }
     }
 }
